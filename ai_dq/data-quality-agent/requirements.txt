@@ -1,0 +1,22 @@
+# === Core ===
+pandas==2.2.1
+numpy==1.26.4
+
+# === Local Embeddings ===
+sentence-transformers==2.6.0
+torch==2.2.1
+transformers==4.39.3
+
+# === Vector Database (local only) ===
+chromadb==1.3.5
+
+# === Utility ===
+python-dotenv==1.0.1
+
+# === Optional for CLI UX ===
+rich==13.7.1
+
+# === Avoid incompatible updates ===
+protobuf==3.20.3
+uvicorn==0.29.0
+fastapi==0.111.0  # Not used now, but safe for future API mode

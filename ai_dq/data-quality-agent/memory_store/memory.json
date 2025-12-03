@@ -1,0 +1,374 @@
+{
+  "fix_history": [
+    {
+      "dataset": "sample.csv",
+      "timestamp": 1764682629,
+      "plan": {
+        "proposed_fixes": [],
+        "questions_to_user": []
+      },
+      "post_validation": {
+        "accepted": false,
+        "notes": "Critic could not parse response",
+        "confidence": 0.0
+      }
+    },
+    {
+      "dataset": "sample.csv",
+      "timestamp": 1764753790,
+      "plan": {
+        "proposed_fixes": [
+          {
+            "id": "FX1",
+            "action": "normalize_email",
+            "description": "Normalize email by removing invalid formats",
+            "params": {},
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P1",
+                "quote": "Emails must follow the pattern: `username@domain.com`"
+              }
+            ],
+            "confidence": 0.9
+          },
+          {
+            "id": "FX2",
+            "action": "impute_nulls",
+            "description": "Impute null values in required fields (e.g., email, phone)",
+            "params": {},
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P3",
+                "quote": "Required fields (e.g., email, phone) must not be null."
+              }
+            ],
+            "confidence": 0.85
+          },
+          {
+            "id": "FX3",
+            "action": "drop_duplicates",
+            "description": "Drop duplicate rows based on unique identifiers (e.g., `id`)",
+            "params": {},
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P4",
+                "quote": "Remove duplicate rows based on unique identifiers (e.g., `id`)."
+              }
+            ],
+            "confidence": 0.95
+          },
+          {
+            "id": "FX4",
+            "action": "remove_negative_values",
+            "description": "Remove negative values from numeric fields like price",
+            "params": {},
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P5",
+                "quote": "Validate that numeric fields have no negative values unless explicitly allowed."
+              }
+            ],
+            "confidence": 0.9
+          }
+        ],
+        "questions_to_user": [
+          {
+            "question": "Should the signup_date be checked for being in the future?",
+            "related_columns": [
+              "signup_date"
+            ]
+          }
+        ]
+      },
+      "post_validation": {
+        "accepted": false,
+        "notes": "Negative price values remain while policy prohibits negatives.",
+        "confidence": 0.2
+      }
+    },
+    {
+      "dataset": "sample.csv",
+      "timestamp": 1764754935,
+      "plan": {
+        "proposed_fixes": [
+          {
+            "id": "FX001",
+            "action": "drop_duplicates",
+            "description": "Remove duplicate rows based on unique identifiers (e.g., `id`)",
+            "params": {
+              "subset": [
+                "id"
+              ]
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P4",
+                "quote": "Remove duplicate rows based on unique identifiers (e.g., `id`)."
+              }
+            ],
+            "confidence": 0.9
+          },
+          {
+            "id": "FX002",
+            "action": "impute_nulls",
+            "description": "Impute null values in email using constant value",
+            "params": {
+              "column": "email",
+              "strategy": "constant",
+              "value": ""
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P3",
+                "quote": "Required fields (e.g., email, phone) must not be null."
+              }
+            ],
+            "confidence": 0.85
+          },
+          {
+            "id": "FX003",
+            "action": "regex_clean",
+            "description": "Clean invalid emails using pattern",
+            "params": {
+              "column": "email",
+              "pattern": "[a-zA-Z]+@[a-zA-Z]+.[a-z]+",
+              "repl": ""
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P1",
+                "quote": "Emails must follow the pattern: `username@domain.com`."
+              }
+            ],
+            "confidence": 0.85
+          },
+          {
+            "id": "FX004",
+            "action": "remove_negative_values",
+            "description": "Remove negative price values",
+            "params": {
+              "column": "price"
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P5",
+                "quote": "Validate that numeric fields have no negative values unless explicitly allowed."
+              }
+            ],
+            "confidence": 0.9
+          }
+        ],
+        "questions_to_user": []
+      },
+      "post_validation": {
+        "accepted": false,
+        "notes": "Negative price values remain while policy prohibits negatives.",
+        "confidence": 0.2
+      }
+    },
+    {
+      "dataset": "sample.csv",
+      "timestamp": 1764755439,
+      "plan": {
+        "proposed_fixes": [
+          {
+            "id": "FX001",
+            "action": "drop_duplicates",
+            "description": "Remove duplicate rows based on id",
+            "params": {
+              "subset": [
+                "id"
+              ]
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P4",
+                "quote": "Remove duplicate rows based on unique identifiers (e.g., `id`)."
+              }
+            ],
+            "confidence": 0.9
+          },
+          {
+            "id": "FX002",
+            "action": "impute_nulls",
+            "description": "Impute null values in email using constant value",
+            "params": {
+              "column": "email",
+              "strategy": "constant",
+              "value": ""
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P3",
+                "quote": "Required fields (e.g., email, phone) must not be null."
+              }
+            ],
+            "confidence": 0.85
+          },
+          {
+            "id": "FX003",
+            "action": "normalize_email",
+            "description": "Clean invalid emails",
+            "params": {
+              "column": "email"
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P1",
+                "quote": "Emails must follow the pattern: `username@domain.com`."
+              }
+            ],
+            "confidence": 0.9
+          },
+          {
+            "id": "FX004",
+            "action": "remove_negative_values",
+            "description": "Remove negative price values",
+            "params": {
+              "column": "price"
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P5",
+                "quote": "Validate that numeric fields have no negative values unless explicitly allowed."
+              }
+            ],
+            "confidence": 0.85
+          }
+        ],
+        "questions_to_user": []
+      },
+      "post_validation": {
+        "accepted": false,
+        "notes": "Negative price values remain while policy prohibits negatives.",
+        "confidence": 0.2
+      }
+    },
+    {
+      "dataset": "sample.csv",
+      "timestamp": 1764756676,
+      "plan": {
+        "proposed_fixes": [
+          {
+            "id": "FX001",
+            "action": "drop_duplicates",
+            "description": "Remove duplicate rows based on id",
+            "params": {
+              "subset": [
+                "id"
+              ]
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P4",
+                "quote": "Remove duplicate rows based on unique identifiers (e.g., `id`)."
+              }
+            ],
+            "confidence": 0.9
+          },
+          {
+            "id": "FX002",
+            "action": "impute_nulls",
+            "description": "Impute null values in phone using constant value",
+            "params": {
+              "column": "phone",
+              "strategy": "constant",
+              "value": ""
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P2",
+                "quote": "Phone numbers should include only valid characters (digits, spaces, dashes, parentheses)."
+              }
+            ],
+            "confidence": 0.85
+          },
+          {
+            "id": "FX003",
+            "action": "normalize_email",
+            "description": "Standardize email format",
+            "params": {
+              "column": "email"
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P1",
+                "quote": "Emails must follow the pattern: `username@domain.com`."
+              }
+            ],
+            "confidence": 0.95
+          }
+        ],
+        "questions_to_user": []
+      },
+      "post_validation": {
+        "accepted": false,
+        "notes": "Negative price values remain while policy prohibits negatives.",
+        "confidence": 0.2
+      }
+    },
+    {
+      "dataset": "sample.csv",
+      "timestamp": 1764759554,
+      "plan": {
+        "proposed_fixes": [
+          {
+            "id": "FX001",
+            "action": "drop_duplicates",
+            "description": "Remove duplicate rows based on id since there is one duplicate row in dataset profile",
+            "params": {
+              "subset": [
+                "id"
+              ]
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P4",
+                "quote": "Remove duplicate rows based on unique identifiers (e.g., `id`)."
+              }
+            ],
+            "confidence": 0.95
+          },
+          {
+            "id": "FX002",
+            "action": "impute_nulls",
+            "description": "Impute null values in email using constant value since there are null values in email with a percentage of 18.18%",
+            "params": {
+              "column": "email",
+              "strategy": "constant",
+              "value": ""
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P3",
+                "quote": "Required fields (e.g., email, phone) must not be null."
+              }
+            ],
+            "confidence": 0.85
+          },
+          {
+            "id": "FX003",
+            "action": "remove_negative_values",
+            "description": "Remove negative values in price since there is a count of invalid values and it's less than the total number of rows",
+            "params": {
+              "column": "price"
+            },
+            "policy_refs": [
+              {
+                "policy_id": "RAG-P5",
+                "quote": "Validate that numeric fields have no negative values unless explicitly allowed."
+              }
+            ],
+            "confidence": 0.9
+          }
+        ],
+        "questions_to_user": []
+      },
+      "post_validation": {
+        "accepted": true,
+        "notes": "Improved and compliant",
+        "confidence": 0.9
+      }
+    }
+  ]
+}

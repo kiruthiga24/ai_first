@@ -1,0 +1,12 @@
+id,name,email,phone,signup_date,price
+1,John Doe,john.doe@example.com,123-456-7890,2023-01-15,100.50
+2,Jane Smith,jane.smith@example,,2023-02-20,200.00
+3,Bob Johnson,,345-678-9012,2023-03-10,150.75
+4,Alice Williams,alice.williams@example.com,,2023-04-05,250.00
+5,Charlie Brown,charlie.brown@example.com,456-789-0123,2023-05-25,
+6,Eve Davis,eve.davis@example.com,567-890-1234,2023-06-30,-50.00
+7,Frank Moore,frank.moore@example.com,678-901-2345,2023-07-15,300.00
+8,Grace Lee,grace.lee@example.com,789-012-3456,2023-08-20,400.00
+9,Hank Green,,890-123-4567,2023-09-25,350.00
+10,Ivy White,ivy.white@example.com,901-234-5678,2023-10-30,450.00
+10,Ivy White,ivy.white@example.com,901-234-5678,2023-10-30,450.00

@@ -1,0 +1,26 @@
+Data Quality Best Practices
+
+1. **Email Validation**: 
+   - Emails must follow the pattern: `username@domain.com`
+   - Any invalid email formats should be flagged for correction.
+
+2. **Phone Number Validation**: 
+   - Phone numbers should include only valid characters (digits, spaces, dashes, parentheses).
+   - Missing or malformed phone numbers should be reviewed.
+
+3. **Null Handling**:
+   - Required fields (e.g., email, phone) must not be null.
+   - Null values should be imputed with appropriate defaults or flagged.
+
+4. **Duplicate Detection**:
+   - Remove duplicate rows based on unique identifiers (e.g., `id`).
+
+5. **Consistency Checks**:
+   - Ensure data types are consistent (e.g., `price` should be numeric).
+   - Validate that numeric fields have no negative values unless explicitly allowed.
+
+6. **Data Freshness**:
+   - Check that dates (e.g., `signup_date`) are not in the future.
+
+7. **Policy References**:
+   - All fixes and validations should reference these best practices.
