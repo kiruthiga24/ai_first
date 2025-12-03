@@ -1,0 +1,30 @@
+
+GDPR Best Practices for Personal Data Handling
+
+1) Lawful Basis & Minimization:
+- Personal data must be processed lawfully, fairly and in a transparent manner.
+- Only collect and keep data necessary for the purpose (data minimization).
+
+2) PII Detection & Handling:
+- Personal Identifiers include: name, email, phone, national id numbers, addresses, date of birth.
+- Sensitive personal data (racial, health, biometric) requires special handling and usually should not be stored.
+
+3) Masking/Redaction:
+- When sharing datasets, mask personal identifiers (e.g., show only domain part of email or hash names).
+- Mask phone numbers by masking middle digits (e.g., +1-123-***-7890).
+- Tokenization or hashing is acceptable when re-identification is not needed.
+
+4) Retention & Deletion:
+- Personal data must be retained only as long as necessary; provide delete/forget mechanism.
+
+5) Access Controls:
+- Restrict access to PII to authorized roles only. Use logs/audits.
+
+6) Consent & Purpose:
+- Keep records of consent; do not use data beyond the agreed purpose.
+
+7) Audit & Explainability:
+- Every automated masking action must be logged, with reason and policy reference.
+
+8) Policy References:
+- All fixes should reference these rules and the specific clause that justifies the action.

@@ -1,0 +1,126 @@
+{
+  "pii_runs": [
+    {
+      "timestamp": 1764764006,
+      "dataset": "sample_pii.csv",
+      "plan": {
+        "proposed_actions": [
+          {
+            "id": "A001",
+            "action": "mask_email",
+            "description": "Mask email local part",
+            "params": {
+              "column": "email",
+              "strategy": "mask_local"
+            },
+            "policy_refs": [
+              {
+                "source": "gdpr_rules.txt",
+                "quote": "Mask personal identifiers"
+              }
+            ],
+            "confidence": 0.85
+          },
+          {
+            "id": "A002",
+            "action": "mask_phone",
+            "description": "Mask phone number middle digits",
+            "params": {
+              "column": "phone",
+              "strategy": "mask_middle"
+            },
+            "policy_refs": [
+              {
+                "source": "gdpr_rules.txt",
+                "quote": "Mask personal identifiers"
+              }
+            ],
+            "confidence": 0.85
+          }
+        ],
+        "questions_to_user": []
+      },
+      "post_validation": {
+        "accepted": true,
+        "notes": "Post-exec validation not fully implemented; manual review recommended.",
+        "confidence": 0.7
+      }
+    },
+    {
+      "timestamp": 1764766771,
+      "dataset": "sample_pii.csv",
+      "plan": {
+        "proposed_actions": [
+          {
+            "id": "A001",
+            "action": "mask_email",
+            "description": "Mask email local part",
+            "params": {
+              "column": "email",
+              "strategy": "mask_local"
+            },
+            "policy_refs": [
+              {
+                "source": "gdpr_rules.txt",
+                "quote": "Mask personal identifiers"
+              }
+            ],
+            "confidence": 0.85
+          }
+        ],
+        "questions_to_user": []
+      },
+      "post_validation": {
+        "accepted": true,
+        "notes": "Post-exec validation not fully implemented; manual review recommended.",
+        "confidence": 0.7
+      }
+    },
+    {
+      "timestamp": 1764774080,
+      "dataset": "sample_pii.csv",
+      "plan": {
+        "proposed_actions": [
+          {
+            "id": "A001",
+            "action": "mask_email",
+            "description": "Mask email local part",
+            "params": {
+              "column": "email",
+              "strategy": "mask_local"
+            },
+            "policy_refs": [
+              {
+                "source": "gdpr_rules.txt",
+                "quote": "Mask personal identifiers"
+              }
+            ],
+            "confidence": 0.85
+          },
+          {
+            "id": "A002",
+            "action": "redact_address",
+            "description": "Redact address to protect sensitive information",
+            "params": {
+              "column": "address",
+              "strategy": "no_mutation"
+            },
+            "policy_refs": [
+              {
+                "source": "gdpr_rules.txt",
+                "quote": "Mask personal identifiers"
+              }
+            ],
+            "confidence": 0.9
+          }
+        ],
+        "questions_to_user": []
+      },
+      "post_validation": {
+        "accepted": true,
+        "notes": "Post-exec validation not fully implemented; manual review recommended.",
+        "confidence": 0.7
+      }
+    }
+  ]
+}

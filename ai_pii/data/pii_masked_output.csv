@@ -1,0 +1,7 @@
+id,name,email,phone,signup_date,address,notes
+1,John Doe,j******e@example.com,+1-123-456-7890,2023-01-15,[REDACTED],VIP
+2,Jane Smith,j********h@example,2345678901,2023-02-20,[REDACTED],
+3,Bob Johnson,,345-678-9012,2023-03-10,[REDACTED],needs follow-up
+4,Alice Williams,a************s@example.com,,2023-04-05,[REDACTED],
+5,Charlie Brown,c***********n@example.com,456-789-0123,2023-05-25,[REDACTED],consent form signed
+6,Eve Davis,e*******s@example.com,567-890-1234,2023-06-30,[REDACTED],
